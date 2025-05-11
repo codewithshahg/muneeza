@@ -1,0 +1,41 @@
+version = 1
+revision = 1
+requires-python = ">=3.13"
+
+[[package]]
+name = "assignment04"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "fpdf" },
+    { name = "graphics-py" },
+    { name = "pyjokes" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fpdf", specifier = ">=1.7.2" },
+    { name = "graphics-py", specifier = ">=5.0.1.post1" },
+    { name = "pyjokes", specifier = ">=0.8.3" },
+]
+
+[[package]]
+name = "fpdf"
+version = "1.7.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/37/c6/608a9e6c172bf9124aa687ec8b9f0e8e5d697d59a5f4fad0e2d5ec2a7556/fpdf-1.7.2.tar.gz", hash = "sha256:125840783289e7d12552b1e86ab692c37322e7a65b96a99e0ea86cca041b6779", size = 39504 }
+
+[[package]]
+name = "graphics-py"
+version = "5.0.1.post1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/66/f5/7d4afbf6dd02ff03be3b8954e0e7015ba8acbbf3492bdd75c061f9b80b46/graphics.py-5.0.1.post1.tar.gz", hash = "sha256:583561cc577447e452fb2b1352c0fc615396b12b30dfbbce48e8190d2e330a97", size = 9590 }
+
+[[package]]
+name = "pyjokes"
+version = "0.8.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/30/cc/2d25e5397d7a6d362971f23b42c8b624c5298c0864a1000cd587f39e6748/pyjokes-0.8.3.tar.gz", hash = "sha256:5735d31e973d5b6934b46b89431505733c3110f9b66eac0ff0be86f7f3646423", size = 44617 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1d/dd/2495fe4d1ff804ec3094ad4c76cd0fcfb8902d630ce690118560a40df171/pyjokes-0.8.3-py3-none-any.whl", hash = "sha256:12836e61bc7a2c1ff302604a040f0f63ac36c5c947c20319fcb5d1ab37bac46e", size = 47563 },
+]
