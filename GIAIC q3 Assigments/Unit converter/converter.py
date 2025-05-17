@@ -16,4 +16,13 @@ def main():
     units = ["Celsius", "Fahrenheit", "Kelvin"]
 
     from_unit = st.selectbox("Convert from:", units)
-    to_unit = st.selectbox("Convert to:",_
+    to_unit = st.selectbox("Convert to:", units)
+
+    value = st.number_input("Enter the temperature value:", format="%.2f")
+
+    if st.button("Convert"):
+        result = temp_converter(value, from_unit, to_unit)
+        st.success(f"{value:.2f} {from_unit} = {result:.2f} {to_unit}")
+
+if __name__ == "__main__":
+    main()
