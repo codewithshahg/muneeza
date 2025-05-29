@@ -1,1 +1,7 @@
 streamlit
+<<<<<<< HEAD
+=======
+pandas
+numpy
+openpyxl
+>>>>>>> 9210fdbbd1653748134bd2ed9bc7eeaf0dc225d5
