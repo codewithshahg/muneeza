@@ -1,6 +1,6 @@
 import json
-from google import genai
-from google.genai import types
+import google.generativeai as genai
+from google.generativeai import types
 
 # Initialize the Gemini AI client
 client = genai.Client(api_key="AIzaSyBC6yAR-S2qW88rUE8fcc8zntaY2VpR0IA")
@@ -32,17 +32,17 @@ EXAMPLE:
 # Generate AI response
 response = client.models.generate_content(
     model="gemini-2.0-flash",
-    contents=[types.Content(role="user", parts=[types.Part.from_text(text="give me karachi weather")]), 
-              types.Content(role="")],
+    contents=[
+        types.Content(role="user", parts=[types.Part.from_text(text="give me karachi weather")])
+    ],
     config=types.GenerateContentConfig(
         temperature=1,
         top_p=0.95,
         top_k=40,
         max_output_tokens=8192,
         response_mime_type="text/plain",
-        system_instruction=[system_instruction],
+        system_instruction=system_instruction,
     ),
 )
-
 
 print(response.text)
