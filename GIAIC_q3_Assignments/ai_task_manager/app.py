@@ -1,12 +1,11 @@
-import json
 import google.generativeai as genai
 from google.generativeai import types
 
-# Initialize the Gemini AI client
-client = genai.Client(api_key="AIzaSyBC6yAR-S2qW88rUE8fcc8zntaY2VpR0IA")
+# Initialize the API key
+genai.init(api_key="AIzaSyBC6yAR-S2qW88rUE8fcc8zntaY2VpR0IA")
 
 # Define the system instruction
-system_instruction = types.Part.from_text(text="""
+system_instruction = """
 You are an AI assistant that follows a strict state protocol: START, PLAN, ACTION, OBSERVATION, OUTPUT.
 Wait for the user prompt and then respond with a plan that uses the available tools.
 After each action, wait for the corresponding observation.
@@ -27,10 +26,10 @@ EXAMPLE:
 { "type": "action", "function": "getWeatherDetails", "input": "mohali" },
 { "type": "observation", "observation": "14°C" },
 { "type": "output", "output": "The sum of weather of Patiala and Mohali is 24°C" }
-""")
+"""
 
 # Generate AI response
-response = client.models.generate_content(
+response = genai.models.generate_content(
     model="gemini-2.0-flash",
     contents=[
         types.Content(role="user", parts=[types.Part.from_text(text="give me karachi weather")])
@@ -41,7 +40,7 @@ response = client.models.generate_content(
         top_k=40,
         max_output_tokens=8192,
         response_mime_type="text/plain",
-        system_instruction=system_instruction,
+        system_instruction=types.Part.from_text(system_instruction),
     ),
 )
 
